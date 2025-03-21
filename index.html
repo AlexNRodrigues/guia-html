@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Guia Rápido de HTML</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f0f0f0;
+                color: #333;
+                line-height: 1.6;
+            }
+            header {
+                background-color: #4caf50;
+                color: white;
+                text-align: center;
+                padding: 1em 0;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            main {
+                padding: 20px;
+                max-width: 900px;
+                margin: auto;
+                background-color: white;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+            h1,
+            h2 {
+                color: #4caf50;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+            h2 {
+                font-size: 1.5em;
+                margin-top: 30px;
+                border-bottom: 2px solid #4caf50;
+                padding-bottom: 5px;
+            }
+            p {
+                margin-bottom: 16px;
+            }
+            ul,
+            ol {
+                margin-bottom: 16px;
+                padding-left: 20px;
+            }
+            a {
+                color: #0078d7;
+                text-decoration: none;
+            }
+            a:hover {
+                color: #0056b3;
+                text-decoration: underline;
+            }
+            strong {
+                font-weight: bold;
+                color: #2c3e50;
+            }
+            code {
+                font-family: monospace;
+                background-color: #f4f4f4;
+                padding: 2px 6px;
+                border-radius: 4px;
+                color: #c7254e;
+                font-size: 1.1em;
+            }
+            pre {
+                background-color: #f4f4f4;
+                padding: 10px;
+                border-radius: 4px;
+                overflow-x: auto;
+                margin: 1em 0;
+                line-height: 1.4;
+                font-size: 1.1em;
+            }
+
+            /* Estilizando as tags semânticas */
+            header {
+                background-color: #357a38; /* Um tom mais escuro de verde */
+            }
+            nav {
+                background-color: #e6ee9c; /* Um verde mais claro */
+                padding: 10px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            nav ul {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+                display: inline-block;
+            }
+            nav ul li {
+                display: inline;
+                margin: 0 10px;
+            }
+            nav ul li a {
+                color: #333;
+                font-weight: bold;
+                text-decoration: none;
+            }
+            nav ul li a:hover {
+                color: #000;
+                text-decoration: underline;
+            }
+            article {
+                margin-bottom: 30px;
+                padding: 15px;
+                border: 1px solid #e0e0e0;
+                border-radius: 5px;
+                background-color: #f9f9f9;
+            }
+            article header {
+                background-color: transparent;
+                color: #4caf50;
+                text-align: left;
+                padding: 0;
+                margin-bottom: 10px;
+                box-shadow: none;
+            }
+            article footer {
+                text-align: right;
+                font-style: italic;
+                color: #777;
+                margin-top: 10px;
+            }
+            section {
+                margin-bottom: 30px;
+            }
+            section h2 {
+                border-bottom: 2px solid #81c784; /* Um verde mais claro para a seção */
+            }
+            aside {
+                background-color: #f1f8e9; /* Um verde muito claro para aside */
+                padding: 15px;
+                margin-top: 20px;
+                border-left: 4px solid #81c784;
+                border-radius: 5px;
+                font-style: italic;
+                color: #555;
+            }
+            footer {
+                background-color: #333;
+                color: white;
+                text-align: center;
+                padding: 1em 0;
+                margin-top: 30px;
+            }
+
+            /* Estilizando formulários */
+            form {
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                border: 1px solid #e0e0e0;
+            }
+            form label {
+                display: block;
+                margin-top: 10px;
+                font-weight: bold;
+                color: #555;
+            }
+            form input[type="text"],
+            form input[type="email"],
+            form textarea {
+                width: 100%;
+                padding: 10px;
+                margin-top: 5px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-sizing: border-box;
+                font-size: 1em;
+            }
+            form textarea {
+                resize: vertical;
+                height: 100px;
+            }
+            form button {
+                background-color: #4caf50;
+                color: white;
+                padding: 10px 20px;
+                margin-top: 15px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 1em;
+                transition: background-color 0.3s ease;
+            }
+            form button:hover {
+                background-color: #45a049;
+            }
+            form input[type="radio"],
+            form input[type="checkbox"] {
+                margin-right: 5px;
+            }
+
+            /* Estilizando tabelas */
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                border: 1px solid #e0e0e0;
+            }
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 10px;
+                text-align: left;
+            }
+            th {
+                background-color: #f4f4f4;
+                color: #333;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            tr:hover {
+                background-color: #f0f0f0;
+            }
+
+            /* Estilizando listas */
+            ul {
+                list-style-type: disc;
+            }
+            ol {
+                list-style-type: decimal;
+            }
+            ul li::marker {
+                color: #4caf50; /* Altera a cor do marcador da lista não ordenada */
+            }
+
+            ol li::marker {
+                color: #4caf50; /* Altera a cor do marcador da lista ordenada */
+            }
+
+            /* Estilizando imagens */
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                margin-bottom: 16px;
+            }
+
+            /* Estilizando elementos de mídia */
+            video,
+            audio {
+                max-width: 100%;
+                margin-bottom: 16px;
+                border-radius: 8px;
+                background-color: #000;
+            }
+
+            /* Estilizando o canvas */
+            canvas {
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                background-color: #ffffff;
+                max-width: 100%;
+                height: auto;
+            }
+
+            /* Estilizando o iframe */
+            iframe {
+                width: 100%;
+                height: 500px;
+                border: none;
+                border-radius: 8px;
+                margin-bottom: 16px;
+            }
+
+            /* Estilizando elementos de input */
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="number"],
+            input[type="date"],
+            input[type="time"],
+            select,
+            textarea {
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0 15px 0;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                box-sizing: border-box;
+                font-size: 1em;
+                transition: border-color 0.3s ease;
+            }
+
+            input[type="text"]:focus,
+            input[type="email"]:focus,
+            input[type="password"]:focus,
+            input[type="number"]:focus,
+            input[type="date"]:focus,
+            input[type="time"]:focus,
+            select:focus,
+            textarea:focus {
+                border-color: #4caf50;
+                outline: none;
+            }
+
+            input[type="radio"],
+            input[type="checkbox"] {
+                margin: 10px 5px 10px 0;
+            }
+
+            input[type="submit"],
+            input[type="reset"],
+            button {
+                /* Estiliza botões e inputs do tipo submit e reset */
+                background-color: #4caf50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 1em;
+                transition: background-color 0.3s ease;
+                margin: 5px;
+            }
+
+            input[type="submit"]:hover,
+            input[type="reset"]:hover,
+            button:hover {
+                background-color: #45a049;
+            }
+
+            /* Estilizando fieldset e legend */
+            fieldset {
+                border: 1px solid #ddd;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                padding: 10px;
+            }
+
+            legend {
+                font-size: 1.2em;
+                font-weight: bold;
+                color: #555;
+                padding: 0 10px;
+            }
+
+            /* Estilizando detalhes e sumário */
+            details {
+                margin-bottom: 20px;
+                padding: 10px;
+                background-color: #f9f9f9;
+                border: 1px solid #ddd;
+                border-radius: 8px;
+            }
+
+            details summary {
+                font-size: 1.1em;
+                font-weight: bold;
+                cursor: pointer;
+                padding: 5px 0;
+            }
+
+            details p {
+                margin-top: 10px;
+            }
+
+            /* Estilizando progresso e medidor */
+            progress {
+                width: 100%;
+                height: 10px;
+                border-radius: 5px;
+                background-color: #f0f0f0;
+                margin-bottom: 16px;
+                appearance: none; /* Remove estilos padrão do navegador */
+            }
+
+            progress::-webkit-progress-bar {
+                background-color: #f0f0f0;
+                border-radius: 5px;
+            }
+
+            progress::-webkit-progress-value {
+                background-color: #4caf50;
+                border-radius: 5px;
+            }
+
+            progress::-moz-progress-bar {
+                background-color: #4caf50;
+                border-radius: 5px;
+            }
+
+            meter {
+                width: 100%;
+                height: 20px;
+                border-radius: 5px;
+                background-color: #f0f0f0;
+                margin-bottom: 16px;
+                appearance: none;
+                display: block;
+            }
+
+            meter::-webkit-meter-bar {
+                background-color: #f0f0f0;
+                border-radius: 5px;
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            meter::-webkit-meter-value {
+                background-color: #4caf50;
+                border-radius: 5px;
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            meter::-moz-meter-bar {
+                background-color: #4caf50;
+                border-radius: 5px;
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            /* Estilizando elementos de tempo */
+            time {
+                color: #2c3e50;
+                font-weight: bold;
+            }
+
+            /* Estilizando citações */
+            blockquote {
+                margin: 1em 0;
+                padding: 15px;
+                border-left: 4px solid #4caf50;
+                background-color: #f9f9f9;
+                border-radius: 5px;
+                font-style: italic;
+                color: #555;
+                quotes: "“" "”" "‘" "’";
+            }
+
+            blockquote::before {
+                content: open-quote;
+                font-size: 4em;
+                line-height: 0.1em;
+                margin-right: 0.25em;
+                vertical-align: -0.4em;
+                color: #4caf50;
+            }
+
+            blockquote::after {
+                content: close-quote;
+                font-size: 4em;
+                line-height: 0.1em;
+                margin-left: 0.25em;
+                vertical-align: -0.4em;
+                color: #4caf50;
+            }
+
+            blockquote p {
+                display: inline;
+            }
+
+            /* Estilizando texto destacado */
+            mark {
+                background-color: #fffacd;
+                color: #2c3e50;
+                padding: 2px 5px;
+                border-radius: 4px;
+            }
+
+            /* Estilizando abreviações */
+            abbr[title] {
+                text-decoration: underline dotted;
+                cursor: help;
+            }
+
+            /* Estilizando sobrescrito e subscrito */
+            sup {
+                vertical-align: super;
+                font-size: 0.8em;
+            }
+
+            sub {
+                vertical-align: sub;
+                font-size: 0.8em;
+            }
+
+            /* Estilos para pequenas telas */
+            @media screen and (max-width: 600px) {
+                body {
+                    font-size: 0.9em;
+                    padding: 10px;
+                }
+                header {
+                    padding: 0.5em 0;
+                }
+                main {
+                    padding: 10px;
+                }
+                nav ul li {
+                    display: block;
+                    margin: 10px 0;
+                }
+                form input[type="text"],
+                form input[type="email"],
+                form textarea {
+                    font-size: 1em;
+                }
+                input[type="submit"],
+                input[type="reset"],
+                button {
+                    font-size: 1em;
+                    padding: 10px 15px;
+                }
+                table {
+                    display: block;
+                    overflow-x: auto;
+                }
+                th,
+                td {
+                    padding: 8px;
+                    font-size: 0.9em;
+                }
+                iframe {
+                    height: 300px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <h1>Guia Rápido de HTML</h1>
+            <p>Um guia prático para as principais tags HTML</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#html-basico">HTML Básico</a></li>
+                <li><a href="#tags-semanticas">Tags Semânticas</a></li>
+                <li><a href="#formularios">Formulários</a></li>
+                <li><a href="#tabelas">Tabelas</a></li>
+                <li><a href="#listas">Listas</a></li>
+                <li><a href="#midia">Mídia</a></li>
+                <li><a href="#outras-tags">Outras Tags Importantes</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="html-basico">
+                <h2>HTML Básico</h2>
+                <p>
+                    HTML (Linguagem de Marcação de Hipertexto) é a linguagem
+                    padrão para criar páginas web. A estrutura de um documento
+                    HTML básico consiste em:
+                </p>
+                <ol>
+                    <li>
+                        <code>&lt;!DOCTYPE html&gt;</code>: Declara o tipo de
+                        documento como HTML5.
+                    </li>
+                    <li>
+                        <code>&lt;html&gt;</code>: Elemento raiz que encapsula
+                        todo o conteúdo da página.
+                    </li>
+                    <li>
+                        <code>&lt;head&gt;</code>: Contém metadados sobre o
+                        documento, como título, links para estilos e scripts.
+                    </li>
+                    <li>
+                        <code>&lt;body&gt;</code>: Contém o conteúdo visível da
+                        página, como texto, imagens e outros elementos.
+                    </li>
+                </ol>
+                <h3>Principais Tags:</h3>
+                <ul>
+                    <li>
+                        <code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code>:
+                        Cabeçalhos de diferentes níveis.
+                    </li>
+                    <li><code>&lt;p&gt;</code>: Parágrafo.</li>
+                    <li>
+                        <code>&lt;a&gt;</code>: Link (âncora). Exemplo:
+                        <a href="https://www.google.com">Visite google.com</a>
+                    </li>
+                    <li>
+                        <code>&lt;img&gt;</code>: Imagem. Exemplo:
+                        <img
+                            src="./nsl.jpg"
+                            alt="Imagem de exemplo"
+                            width="150"
+                        />
+                    </li>
+                    <li><code>&lt;br&gt;</code>: Quebra de linha.</li>
+                    <li><code>&lt;hr&gt;</code>: Linha horizontal.</li>
+                    <li>
+                        <code>&lt;div&gt;</code>: Divisão de conteúdo (container
+                        genérico).
+                    </li>
+                    <li>
+                        <code>&lt;span&gt;</code>: Elemento de linha para
+                        agrupar conteúdo.
+                    </li>
+                    <li>
+                        <code>&lt;strong&gt;</code>: Texto em negrito. Exemplo:
+                        <strong>Texto importante</strong>
+                    </li>
+                    <li>
+                        <code>&lt;em&gt;</code>: Texto enfatizado (itálico).
+                        Exemplo: <em>Texto enfatizado</em>
+                    </li>
+                    <li>
+                        <code>&lt;mark&gt;</code>: Texto marcado ou destacado.
+                        Exemplo: <mark>Texto destacado</mark>
+                    </li>
+                    <li>
+                        <code>&lt;code&gt;</code>: Exibe código de computador.
+                        Exemplo: <code>int x = 10;</code>
+                    </li>
+                    <li>
+                        <code>&lt;pre&gt;</code>: Texto pré-formatado, mantém
+                        espaços e quebras de linha.
+                        <pre>
+                        function exemplo() {
+                            console.log("Olá, mundo!");
+                        }
+                    </pre
+                        >
+                    </li>
+                </ul>
+            </section>
+
+            <section id="tags-semanticas">
+                <h2>Tags Semânticas</h2>
+                <p>
+                    Tags semânticas fornecem significado ao conteúdo da página,
+                    melhorando a acessibilidade e o SEO.
+                </p>
+                <ul>
+                    <li>
+                        <code>&lt;header&gt;</code>: Cabeçalho da página ou
+                        seção.
+                    </li>
+                    <li>
+                        <code>&lt;nav&gt;</code>: Menu de navegação.
+                        <nav>
+                            <ul>
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Produtos</a></li>
+                                <li><a href="#">Serviços</a></li>
+                                <li><a href="#">Sobre</a></li>
+                            </ul>
+                        </nav>
+                    </li>
+                    <li>
+                        <code>&lt;article&gt;</code>: Conteúdo independente,
+                        como um post de blog.
+                        <article>
+                            <header>
+                                <h3>Título do Artigo</h3>
+                                <p>
+                                    Publicado em:
+                                    <time datetime="2024-03-21">21 de Março de 2024</time>
+                                </p>
+                            </header>
+                            <p>Este é um artigo interessante sobre HTML.</p>
+                            <section>
+                                <h4>Subseção</h4>
+                                <p>Detalhes da subseção.</p>
+                            </section>
+                            <footer>
+                                <p>Autor: Alex Nascimento</p>
+                            </footer>
+                        </article>
+                    </li>
+                    <li>
+                        <code>&lt;section&gt;</code>: Seção de conteúdo
+                        relacionado.
+                    </li>
+                    <li>
+                        <code>&lt;aside&gt;</code>: Conteúdo relacionado ao
+                        conteúdo principal, como uma barra lateral.
+                        <aside>
+                            <p>Esta é uma informação adicional.</p>
+                        </aside>
+                    </li>
+                    <li>
+                        <code>&lt;footer&gt;</code>: Rodapé da página ou seção.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="formularios">
+                <h2>Formulários</h2>
+                <p>Formulários são usados para coletar dados do usuário.</p>
+                <form action="#" method="post">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required /><br />
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" /><br />
+
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem"></textarea><br />
+
+                    <label for="genero">Gênero:</label><br />
+                    <input
+                        type="radio"
+                        id="masculino"
+                        name="genero"
+                        value="masculino"
+                    />
+                    <label for="masculino">Masculino</label><br />
+                    <input
+                        type="radio"
+                        id="feminino"
+                        name="genero"
+                        value="feminino"
+                    />
+                    <label for="feminino">Feminino</label><br />
+
+                    <label for="newsletter"
+                        >Deseja receber nossa newsletter?</label
+                    >
+                    <input
+                        type="checkbox"
+                        id="newsletter"
+                        name="newsletter"
+                        checked
+                    /><br />
+
+                    <label for="nascimento">Data de Nascimento:</label>
+                    <input
+                        type="date"
+                        id="nascimento"
+                        name="nascimento"
+                    /><br />
+
+                    <label for="hora">Hora:</label>
+                    <input type="time" id="hora" name="hora" /><br />
+
+                    <label for="cor">Cor Favorita:</label>
+                    <input type="color" id="cor" name="cor" /><br />
+
+                    <label for="arquivo">Selecione um arquivo:</label>
+                    <input type="file" id="arquivo" name="arquivo" /><br />
+
+                    <label for="range">Volume:</label>
+                    <input
+                        type="range"
+                        id="range"
+                        name="volume"
+                        min="0"
+                        max="100"
+                        value="50"
+                    /><br />
+
+                    <label for="search">Pesquisar:</label>
+                    <input type="search" id="search" name="search" /><br />
+
+                    <label for="url">URL:</label>
+                    <input type="url" id="url" name="url" /><br />
+
+                    <label for="telefone">Telefone:</label>
+                    <input
+                        type="tel"
+                        id="telefone"
+                        name="telefone"
+                        pattern="[0-9]{2}-[0-9]{4}-[0-9]{4}"
+                        placeholder="Ex: 11-1234-5678"
+                    /><br />
+
+                    <label for="select">Selecione uma opção:</label>
+                    <select id="select" name="opcao">
+                        <option value="opcao1">Opção 1</option>
+                        <option value="opcao2">Opção 2</option>
+                        <option value="opcao3">Opção 3</option></select
+                    ><br />
+
+                    <fieldset>
+                        <legend>Informações Adicionais</legend>
+                        <label for="profissao">Profissão:</label>
+                        <input
+                            type="text"
+                            id="profissao"
+                            name="profissao"
+                        /><br />
+                    </fieldset>
+
+                    <input type="submit" value="Enviar" />
+                    <input type="reset" value="Limpar" />
+                    <button type="button">Cancelar</button>
+                </form>
+            </section>
+
+            <section id="tabelas">
+                <h2>Tabelas</h2>
+                <p>
+                    Tabelas são usadas para exibir dados em formato de linhas e
+                    colunas.
+                </p>
+                <table>
+                    <caption>
+                        Tabela de Preços
+                    </caption>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Maçã</td>
+                            <td>R$ 2,50</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Banana</td>
+                            <td>R$ 2,00</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Laranja</td>
+                            <td>R$ 3,00</td>
+                            <td>15</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">Total de Produtos: 45</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </section>
+
+            <section id="listas">
+                <h2>Listas</h2>
+                <p>
+                    Listas são usadas para organizar informações em formato de
+                    lista ordenada ou não ordenada.
+                </p>
+                <h3>Lista Não Ordenada:</h3>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                    <li>Item 3</li>
+                </ul>
+                <h3>Lista Ordenada:</h3>
+                <ol>
+                    <li>Passo 1</li>
+                    <li>Passo 2</li>
+                    <li>Passo 3</li>
+                </ol>
+                <h3>Lista de Definição:</h3>
+                <dl>
+                    <dt>HTML</dt>
+                    <dd>- Linguagem de marcação para criar páginas web.</dd>
+                    <dt>CSS</dt>
+                    <dd>- Linguagem para estilizar páginas web.</dd>
+                    <dt>JavaScript</dt>
+                    <dd>
+                        - Linguagem de programação para adicionar interatividade
+                        a páginas web.
+                    </dd>
+                </dl>
+            </section>
+
+            <section id="midia">
+                <h2>Mídia</h2>
+                <p>
+                    HTML suporta a incorporação de diferentes tipos de mídia,
+                    como imagens, vídeos e áudios.
+                </p>
+                <h3>Imagem:</h3>
+                <img
+                    src="./nsl.jpg"
+                    alt="Imagem de exemplo"
+                    width="150"
+                />
+                <h3>Vídeo:</h3>
+                <video controls>
+                    <source
+                        src="https://www.w3schools.com/html/mov_bbb.mp4"
+                        type="video/mp4"
+                    />
+                    Seu navegador não suporta o elemento de vídeo.
+                </video>
+                <h3>Áudio:</h3>
+                <audio controls>
+                    <source
+                        src="https://www.w3schools.com/html/horse.ogg"
+                        type="audio/ogg"
+                    />
+                    Seu navegador não suporta o elemento de áudio.
+                </audio>
+                <h3>Canvas:</h3>
+                <canvas id="meuCanvas" width="200" height="100">
+                    Seu navegador não suporta o elemento canvas.
+                </canvas>
+                <h3>Iframe:</h3>
+                <iframe src="https://monitoramento.escolansl.com"></iframe>
+            </section>
+
+            <section id="outras-tags">
+                <h2>Outras Tags Importantes</h2>
+                <ul>
+                    <li>
+                        <code>&lt;details&gt;</code> e
+                        <code>&lt;summary&gt;</code>: Cria um elemento
+                        expansível.
+                        <details>
+                            <summary>Detalhes</summary>
+                            <p>
+                                Informações adicionais podem ser exibidas aqui.
+                            </p>
+                        </details>
+                    </li>
+                    <li>
+                        <code>&lt;dialog&gt;</code>: Cria uma caixa de diálogo
+                        ou janela modal.
+                        <dialog id="minhaDialog">
+                            <p>Esta é uma caixa de diálogo!</p>
+                            <button id="fecharDialog">Fechar</button>
+                        </dialog>
+                        <button id="abrirDialog">Abrir Diálogo</button>
+
+                        <script>
+                            const dialog =
+                                document.getElementById("minhaDialog");
+                            const abrirDialogBtn =
+                                document.getElementById("abrirDialog");
+                            const fecharDialogBtn =
+                                document.getElementById("fecharDialog");
+
+                            abrirDialogBtn.addEventListener("click", () => {
+                                dialog.showModal();
+                            });
+
+                            fecharDialogBtn.addEventListener("click", () => {
+                                dialog.close();
+                            });
+                        </script>
+                    </li>
+                    <li>
+                        <code>&lt;progress&gt;</code>: Exibe o progresso de uma
+                        tarefa.
+                        <progress id="file" value="32" max="100">32%</progress>
+                    </li>
+                    <li>
+                        <code>&lt;meter&gt;</code>: Exibe uma medida dentro de
+                        um intervalo.
+                        <meter value="70" min="0" max="100">70 de 100</meter>
+                    </li>
+                    <li>
+                        <code>&lt;time&gt;</code>: Representa um período de
+                        tempo.
+                        <p>
+                            O evento ocorrerá em
+                            <time datetime="2024-08-05T19:00"
+                                >19:00h do dia 05 de Agosto de 2024</time
+                            >.
+                        </p>
+                    </li>
+                    <li>
+                        <code>&lt;blockquote&gt;</code>: Citação longa.
+                        <blockquote cite="https://www.w3.org/TR/html5/">
+                            <p>
+                                A citação é usada para indicar uma seção citada
+                                de outra fonte.
+                            </p>
+                            <p>
+                                Pode ser usado para citar um trecho de um blog,
+                                um artigo, etc.
+                            </p>
+                        </blockquote>
+                    </li>
+                    <li>
+                        <code>&lt;abbr&gt;</code>: Abreviação ou acrônimo.
+                        <p>
+                            O <abbr title="World Wide Web">WWW</abbr> é um
+                            sistema de documentos interligados.
+                        </p>
+                    </li>
+                    <li>
+                        <code>&lt;dfn&gt;</code>: Define um termo.
+                        <p>
+                            <dfn title="Hypertext Markup Language">HTML</dfn> é
+                            a linguagem padrão para criar páginas web.
+                        </p>
+                    </li>
+                    <li>
+                        <code>&lt;kbd&gt;</code>: Texto digitado pelo usuário.
+                        <p>
+                            Pressione <kbd>Ctrl</kbd> + <kbd>S</kbd> para salvar
+                            o documento.
+                        </p>
+                    </li>
+                    <li>
+                        <code>&lt;q&gt;</code>: Citação curta.
+                        <p>Ele disse: <q>Olá, mundo!</q></p>
+                    </li>
+                    <li>
+                        <code>&lt;samp&gt;</code>: Saída de exemplo de um
+                        programa.
+                        <p>Resultado do comando: <samp>Sucesso!</samp></p>
+                    </li>
+                    <li>
+                        <code>&lt;var&gt;</code>: Variável de um programa.
+                        <p>O valor de <var>x</var> é 10.</p>
+                    </li>
+                    <li>
+                        <code>&lt;sup&gt;</code>: Texto sobrescrito. Exemplo:
+                        x<sup>2</sup>
+                    </li>
+                    <li>
+                        <code>&lt;sub&gt;</code>: Texto subscrito. Exemplo:
+                        H<sub>2</sub>O
+                    </li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                &copy; 2024 Guia Rápido de HTML. Todos os direitos reservados.
+            </p>
+        </footer>
+    </body>
+</html>
